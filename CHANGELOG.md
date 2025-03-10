@@ -1,3 +1,15 @@
+## 7.1.3
+- Added Wavy Divider Widget
+## 7.1.2
+- Fix obscureText issue in AppTextField widget
+## 7.1.1
+- #69 Solved built error in java 17
+## 7.1.0
+- Make obscureText nullable in AppTextField widget
+## 7.0.10
+- Fixed packageInfo issue in iOS
+## 7.0.9
+- Added onTapOutside in AppTextField
 ## 7.0.8
 - Updated URL validation Pattern
 - Added helper function for masking email and phone numbers

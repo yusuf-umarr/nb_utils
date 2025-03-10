@@ -3,7 +3,6 @@ import 'nb_utils_platform_interface.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 export 'package:connectivity_plus/connectivity_plus.dart';
@@ -92,6 +91,7 @@ export 'src/widgets/timer_widget.dart';
 export 'src/widgets/ul_widget.dart';
 export 'src/widgets/version_info_widget.dart';
 export 'src/widgets/widgets.dart';
+export 'src/widgets/wavy_divider.dart';
 
 //region Global variables - This variables can be changed.
 Color textPrimaryColorGlobal = textPrimaryColor;

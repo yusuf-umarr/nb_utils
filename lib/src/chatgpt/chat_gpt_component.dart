@@ -13,7 +13,7 @@ class ChatGPTSheetComponent extends StatefulWidget {
 
   final ChatGPTModuleStrings gptModuleStrings;
 
-  ChatGPTSheetComponent({
+  const ChatGPTSheetComponent({
     super.key,
     this.initialPrompt = '',
     required this.recentList,
@@ -114,7 +114,7 @@ class _ChatGPTSheetComponentState extends State<ChatGPTSheetComponent> {
                   "${widget.gptModuleStrings.generateUsingAI} 🤖",
                   style: boldTextStyle(
                     size: 16,
-                    color: context.primaryColor.withOpacity( 0.85),
+                    color: context.primaryColor. withOpacity( 0.85),
                   ),
                 ).expand(),
                 CloseButton(color: context.iconColor),
@@ -147,7 +147,7 @@ class _ChatGPTSheetComponentState extends State<ChatGPTSheetComponent> {
                               ),
                               decoration: BoxDecoration(
                                 color: context.primaryColor
-                                    .withOpacity(0.85),
+                                    .withOpacity( 0.85),
                                 borderRadius: BorderRadius.circular(10),
                                 shape: BoxShape.rectangle,
                               ),
@@ -158,18 +158,18 @@ class _ChatGPTSheetComponentState extends State<ChatGPTSheetComponent> {
                             ),
                       )
                     : AppButton(
-                        child: Text(
-                            answerCont.text.isNotEmpty
-                                ? widget.gptModuleStrings.reGenerate
-                                : widget.gptModuleStrings.generate,
-                            style: boldTextStyle(color: white)),
-                        color: context.primaryColor.withOpacity(0.85),
+                        color: context.primaryColor.withOpacity( 0.85),
                         textStyle: boldTextStyle(color: white),
                         width: context.width(),
                         elevation: defaultAppButtonElevation,
                         onTap: () {
                           handleGenerateClick(context);
                         },
+                        child: Text(
+                            answerCont.text.isNotEmpty
+                                ? widget.gptModuleStrings.reGenerate
+                                : widget.gptModuleStrings.generate,
+                            style: boldTextStyle(color: white)),
                       ),
                 if (displayGeneratedText)
                   Column(
@@ -243,7 +243,7 @@ class _ChatGPTSheetComponentState extends State<ChatGPTSheetComponent> {
                           IconButton(
                             icon: Icon(
                               Icons.clear_all_rounded,
-                              color: context.iconColor.withOpacity( 0.6),
+                              color: context.iconColor.withOpacity(0.6),
                             ),
                             onPressed: () async {
                               showConfirmDialogCustom(
@@ -263,7 +263,7 @@ class _ChatGPTSheetComponentState extends State<ChatGPTSheetComponent> {
                           ),
                         ],
                       ),
-                      Container(
+                      SizedBox(
                         height: context.height() * 0.42,
                         child: AnimatedListView(
                           shrinkWrap: true,

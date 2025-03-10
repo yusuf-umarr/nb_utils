@@ -93,9 +93,11 @@ class AppTextField extends StatefulWidget {
 
   @Deprecated('Use TextFieldType.PASSWORD instead')
   final bool? isPassword;
-  final bool obscureText;
+  final bool? obscureText;
 
-  AppTextField({
+  final Function(PointerDownEvent)? onTapOutside;
+
+  const AppTextField({
     this.controller,
     required this.textFieldType,
     this.decoration,
@@ -155,9 +157,10 @@ class AppTextField extends StatefulWidget {
     this.promptFieldInputDecorationChatGPT,
     this.shortReplyChatGPT = false,
     this.testWithoutKeyChatGPT = false,
-    this.obscureText = false,
-    Key? key,
-  }) : super(key: key);
+    this.obscureText,
+    this.onTapOutside,
+    super.key,
+  });
 
   @override
   _AppTextFieldState createState() => _AppTextFieldState();
@@ -166,6 +169,15 @@ class AppTextField extends StatefulWidget {
 class _AppTextFieldState extends State<AppTextField> {
   bool isPasswordVisible = false;
   List<String> recentChat = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.obscureText != null) {
+      isPasswordVisible = widget.obscureText!;
+    }
+  }
 
   FormFieldValidator<String>? applyValidation() {
     if (widget.isValidationRequired) {
@@ -395,9 +407,9 @@ class _AppTextFieldState extends State<AppTextField> {
   Widget textFormFieldWidget() {
     return TextFormField(
       controller: widget.controller,
-      obscureText: widget.textFieldType == TextFieldType.PASSWORD &&
-          !isPasswordVisible &&
-          widget.obscureText,
+      onTapOutside: widget.onTapOutside,
+      obscureText: (widget.textFieldType == TextFieldType.PASSWORD &&
+          !isPasswordVisible),
       validator: applyValidation(),
       textCapitalization: applyTextCapitalization(),
       textInputAction: applyTextInputAction(),
